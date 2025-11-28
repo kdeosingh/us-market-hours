@@ -24,3 +24,4 @@ ENV NUXT_PORT=3000
 # Start the application
 CMD ["node", ".output/server/index.mjs"]
 
+

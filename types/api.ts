@@ -35,3 +35,4 @@ export interface MarketDayDisplay extends MarketHoursResponse {
   day_of_week?: string
 }
 
+

@@ -37,6 +37,18 @@ export default defineNuxtConfig({
     typeCheck: false
   },
 
+  // Production settings
+  nitro: {
+    preset: 'node-server',
+    compressPublicAssets: true
+  },
+
+  // Railway-specific: Listen on all interfaces
+  devServer: {
+    host: process.env.NUXT_HOST || '0.0.0.0',
+    port: parseInt(process.env.NUXT_PORT || '3000')
+  },
+
   compatibilityDate: '2024-11-28'
 })
 
