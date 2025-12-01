@@ -27,25 +27,28 @@
 
     <div v-else-if="todayData" class="p-6 flex-1 flex flex-col justify-between">
       <div>
-        <!-- Status Badge -->
-        <div class="flex items-center justify-center mb-6">
-          <div 
-            class="inline-flex items-center px-6 py-3 rounded-md text-sm font-bold tracking-wide uppercase"
-            :class="statusClasses"
-          >
-            <div class="w-2 h-2 rounded-full mr-2 animate-pulse" :class="{
-              'bg-white': todayData.status === 'OPEN',
-              'bg-gray-800': todayData.status === 'CLOSED',
-              'bg-white': todayData.status === 'EARLY_CLOSE'
-            }"></div>
-            {{ todayData.status.replace('_', ' ') }}
+        <!-- Enhanced Status Section -->
+        <div class="relative overflow-hidden rounded-xl mb-6" :class="statusBgClasses">
+          <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
+              <path fill="currentColor" d="M0,20 L20,25 L40,18 L60,30 L80,22 L100,35 L120,28 L140,40 L160,32 L180,45 L200,38 L220,50 L240,43 L260,55 L280,48 L300,60 L320,53 L340,65 L360,58 L380,70 L400,63 L400,100 L0,100 Z"/>
+            </svg>
           </div>
-        </div>
-
-        <!-- Date -->
-        <div class="text-center mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
-          <p class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1">{{ formattedDate }}</p>
-          <p class="text-sm text-gray-700 dark:text-gray-300">{{ todayData.notes }}</p>
+          
+          <div class="relative px-6 py-8 text-center">
+            <div class="flex items-center justify-center mb-3">
+              <div 
+                class="w-3 h-3 rounded-full animate-pulse mr-3"
+                :class="statusDotClasses"
+              ></div>
+              <span class="text-2xl font-bold text-white tracking-wide uppercase">
+                {{ todayData.status.replace('_', ' ') }}
+              </span>
+            </div>
+            
+            <p class="text-sm text-white/90 mb-2">{{ formattedDate }}</p>
+            <p class="text-xs text-white/75">{{ todayData.notes }}</p>
+          </div>
         </div>
 
         <!-- Trading Hours -->
@@ -92,16 +95,29 @@ const todayData = ref<MarketHoursResponse | null>(null)
 const loading = ref(true)
 const error = ref<string | null>(null)
 
-const statusClasses = computed(() => {
+const statusBgClasses = computed(() => {
   if (!todayData.value) return ''
   
   const status = todayData.value.status
   if (status === 'OPEN') {
-    return 'bg-green-600 text-white'
+    return 'bg-gradient-to-br from-green-500 to-emerald-600'
   } else if (status === 'EARLY_CLOSE') {
-    return 'bg-amber-500 text-white'
+    return 'bg-gradient-to-br from-amber-500 to-orange-600'
   } else {
-    return 'bg-gray-600 text-white'
+    return 'bg-gradient-to-br from-gray-600 to-gray-700'
+  }
+})
+
+const statusDotClasses = computed(() => {
+  if (!todayData.value) return ''
+  
+  const status = todayData.value.status
+  if (status === 'OPEN') {
+    return 'bg-white shadow-lg shadow-green-500/50'
+  } else if (status === 'EARLY_CLOSE') {
+    return 'bg-white shadow-lg shadow-amber-500/50'
+  } else {
+    return 'bg-gray-300'
   }
 })
 

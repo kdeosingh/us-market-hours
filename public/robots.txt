@@ -1,0 +1,29 @@
+# Robots.txt for Market Open Time
+# https://marketopentime.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_nuxt/
+
+# Sitemaps
+Sitemap: https://marketopentime.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Googlebot specific
+User-agent: Googlebot
+Allow: /
+
+# Bingbot specific  
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+

@@ -1,36 +1,5 @@
 <template>
   <div class="max-w-6xl mx-auto space-y-6">
-    <!-- Hero Section with Image -->
-    <div class="relative bg-gradient-to-r from-blue-600 to-indigo-700 rounded-lg shadow-lg overflow-hidden">
-      <div class="absolute inset-0 opacity-10">
-        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200">
-          <path fill="currentColor" d="M0,50 L50,60 L100,40 L150,70 L200,45 L250,80 L300,55 L350,90 L400,65 L450,100 L500,75 L550,110 L600,85 L650,120 L700,95 L750,130 L800,105 L850,140 L900,115 L950,150 L1000,125 L1050,160 L1100,135 L1150,170 L1200,145 L1200,200 L0,200 Z"/>
-        </svg>
-      </div>
-      <div class="relative px-8 py-6">
-        <div class="flex items-center justify-between">
-          <div class="max-w-2xl">
-            <h1 class="text-2xl font-bold text-white mb-1.5">NYSE & NASDAQ Market Hours</h1>
-            <p class="text-blue-100 text-sm leading-relaxed">
-              Track real-time US stock market trading hours with automatic timezone conversion. 
-              Stay informed about regular hours, early closes, and holiday schedules.
-            </p>
-          </div>
-          <div class="hidden md:flex items-center space-x-3">
-            <div class="text-right">
-              <div class="text-xs text-blue-200 uppercase tracking-wider">Live Data</div>
-              <div class="text-xl font-bold text-white">NYSE</div>
-            </div>
-            <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Main Content Grid -->
     <div class="grid md:grid-cols-3 gap-6 items-start">
       <!-- Today Panel - Takes 2 columns -->
@@ -137,4 +106,48 @@ const holidays = [
   { name: "Thanksgiving", date: "November 27, 2025", icon: "🦃" },
   { name: "Christmas", date: "December 25, 2025", icon: "🎄" }
 ]
+
+// Enhanced SEO for homepage
+useHead({
+  title: 'Market Open Time - NYSE & NASDAQ Real-Time Market Hours & Trading Status',
+  meta: [
+    { name: 'description', content: 'Check NYSE & NASDAQ market hours in real-time. View current market status, holiday schedule, trading hours with timezone conversion. Know instantly when US stock markets are open.' },
+    { name: 'keywords', content: 'is NYSE open, is NASDAQ open, market hours today, stock market open, market holiday, trading hours, US market hours, pre-market, after-hours, market status' },
+    { property: 'og:title', content: 'Market Open Time - NYSE & NASDAQ Real-Time Market Hours' },
+    { property: 'og:description', content: 'Check NYSE & NASDAQ market hours in real-time. View current market status, holiday schedule, and trading hours.' },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:title', content: 'Market Open Time - NYSE & NASDAQ Real-Time Market Hours' },
+    { name: 'twitter:description', content: 'Check NYSE & NASDAQ market hours in real-time. Know instantly when US stock markets are open.' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://marketopentime.com/' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Market Open Time - NYSE & NASDAQ Market Hours",
+        "description": "Real-time NYSE & NASDAQ market hours, holiday schedules, and trading status",
+        "url": "https://marketopentime.com",
+        "mainEntity": {
+          "@type": "Table",
+          "about": "NYSE and NASDAQ market hours and holiday schedule"
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://marketopentime.com"
+            }
+          ]
+        }
+      })
+    }
+  ]
+})
 </script>

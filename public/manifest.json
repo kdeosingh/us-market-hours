@@ -1,0 +1,19 @@
+{
+  "name": "Market Open Time",
+  "short_name": "MarketTime",
+  "description": "Real-time NYSE & NASDAQ market hours and trading status",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e293b",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["finance", "business", "productivity"]
+}
+
