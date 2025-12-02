@@ -81,3 +81,4 @@ CORS_ORIGINS=https://your-frontend.up.railway.app
 Both apps need to know about each other!
 
 
+
